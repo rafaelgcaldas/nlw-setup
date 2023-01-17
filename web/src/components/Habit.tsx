@@ -1,5 +1,5 @@
 export function Habit() {
   return (
-    <h1>Habit</h1>
+    <div className="bg-zinc-900 text-white">NLW</div>
   )
 }
