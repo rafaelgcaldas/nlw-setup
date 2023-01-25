@@ -5,6 +5,9 @@ const weekdays = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
 
 const summaryDates = generateDatesFromYearBeginning()
 
+const minimumSummaryDatesSize = 18 * 7 // 18 weeks
+const amountOfDaysToFill = minimumSummaryDatesSize - summaryDates.length
+
 console.log(summaryDates.length)
 
 export function SummaryTable() {
@@ -29,6 +32,15 @@ export function SummaryTable() {
         {summaryDates.map(date => {
           return (
             <HabitDay key={date.toString()} />
+          )
+        })}
+
+        {amountOfDaysToFill > 0 && Array.from({ length: amountOfDaysToFill }).map((_, i) => {
+          return (
+            <div 
+              key={i}
+              className="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg opacity-40 cursor-not-allowed"
+            />
           )
         })}
       </div>
